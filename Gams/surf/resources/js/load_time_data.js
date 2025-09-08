@@ -100,7 +100,7 @@ class LoadTimeData {
    */
   substituteString(label, var_args) {
     const varArgs = arguments;
-    return label.replace(/\$(.|$|\n)/g, function (m) {
+    return label.replace(/\$(.|$|\n)/g, function(m) {
       expect(m.match(/\$[$1-9]/), 'Unescaped $ found in localized string.');
       return m === '$$' ? '$' : varArgs[m[1]];
     });
@@ -122,19 +122,19 @@ class LoadTimeData {
     // Split the string by separately matching all occurrences of $1-9 and of
     // non $1-9 pieces.
     const pieces = (label.match(/(\$[1-9])|(([^$]|\$([^1-9]|$))+)/g) ||
-      []).map(function (p) {
-        // Pieces that are not $1-9 should be returned after replacing $$
-        // with $.
-        if (!p.match(/^\$[1-9]$/)) {
-          expect(
+                    []).map(function(p) {
+      // Pieces that are not $1-9 should be returned after replacing $$
+      // with $.
+      if (!p.match(/^\$[1-9]$/)) {
+        expect(
             (p.match(/\$/g) || []).length % 2 === 0,
             'Unescaped $ found in localized string.');
-          return { value: p.replace(/\$\$/g, '$'), arg: null };
-        }
+        return {value: p.replace(/\$\$/g, '$'), arg: null};
+      }
 
-        // Otherwise, return the substitution value.
-        return { value: varArgs[p[1]], arg: p };
-      });
+      // Otherwise, return the substitution value.
+      return {value: varArgs[p[1]], arg: p};
+    });
 
     return pieces;
   }
@@ -168,8 +168,8 @@ class LoadTimeData {
    */
   overrideValues(replacements) {
     expect(
-      typeof replacements === 'object',
-      'Replacements must be a dictionary object.');
+        typeof replacements === 'object',
+        'Replacements must be a dictionary object.');
     for (const key in replacements) {
       this.data_[key] = replacements[key];
     }
@@ -192,33 +192,35 @@ class LoadTimeData {
   }
 }
 
-/**
- * Checks condition, throws error message if expectation fails.
- * @param {*} condition The condition to check for truthiness.
- * @param {string} message The message to display if the check fails.
- */
-function expect(condition, message) {
-  if (!condition) {
-    throw new Error(
-      'Unexpected condition on ' + document.location.href + ': ' + message);
+  /**
+   * Checks condition, throws error message if expectation fails.
+   * @param {*} condition The condition to check for truthiness.
+   * @param {string} message The message to display if the check fails.
+   */
+  function expect(condition, message) {
+    if (!condition) {
+      throw new Error(
+          'Unexpected condition on ' + document.location.href + ': ' + message);
+    }
   }
-}
 
-/**
- * Checks that the given value has the given type.
- * @param {string} id The id of the value (only used for error message).
- * @param {*} value The value to check the type on.
- * @param {string} type The type we expect |value| to be.
- */
-function expectIsType(id, value, type) {
-  expect(
-    typeof value === type, '[' + value + '] (' + id + ') is not a ' + type);
-}
+  /**
+   * Checks that the given value has the given type.
+   * @param {string} id The id of the value (only used for error message).
+   * @param {*} value The value to check the type on.
+   * @param {string} type The type we expect |value| to be.
+   */
+  function expectIsType(id, value, type) {
+    expect(
+        typeof value === type, '[' + value + '] (' + id + ') is not a ' + type);
+  }
 
-expect(!loadTimeData, 'should only include this file once');
-loadTimeData = new LoadTimeData;
+  expect(!loadTimeData, 'should only include this file once');
+  loadTimeData = new LoadTimeData;
 
-// Expose |loadTimeData| directly on |window|, since within a JS module the
-// scope is local and not all files have been updated to import the exported
-// |loadTimeData| explicitly.
-window.loadTimeData = loadTimeData;
+  // Expose |loadTimeData| directly on |window|, since within a JS module the
+  // scope is local and not all files have been updated to import the exported
+  // |loadTimeData| explicitly.
+  window.loadTimeData = loadTimeData;
+
+  console.warn('crbug/1173575, non-JS module files deprecated.');

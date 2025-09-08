@@ -53,7 +53,7 @@
  * @return {Element} A node with class of |className| or null if none is found.
  */
 /* #export */ function findAncestorByClass(el, className) {
-  return /** @type {Element} */ (findAncestor(el, function (el) {
+  return /** @type {Element} */ (findAncestor(el, function(el) {
     return el.classList && el.classList.contains(className);
   }));
 }
@@ -72,7 +72,7 @@
       break;
     }
     node = includeShadowHosts && node instanceof ShadowRoot ? node.host :
-      node.parentNode;
+                                                              node.parentNode;
   }
   return node;
 }
@@ -87,16 +87,16 @@
  *    is defined and returns true, the ondragstart event will be suppressed.
  */
 /* #export */ function disableTextSelectAndDrag(
-  opt_allowSelectStart, opt_allowDragStart) {
+    opt_allowSelectStart, opt_allowDragStart) {
   // Disable text selection.
-  document.onselectstart = function (e) {
+  document.onselectstart = function(e) {
     if (!(opt_allowSelectStart && opt_allowSelectStart.call(this, e))) {
       e.preventDefault();
     }
   };
 
   // Disable dragging.
-  document.ondragstart = function (e) {
+  document.ondragstart = function(e) {
     if (!(opt_allowDragStart && opt_allowDragStart.call(this, e))) {
       e.preventDefault();
     }
@@ -120,7 +120,7 @@
  */
 /* #export */ function getRequiredElement(id) {
   return assertInstanceof(
-    $(id), HTMLElement, 'Missing required element: ' + id);
+      $(id), HTMLElement, 'Missing required element: ' + id);
 }
 
 /**
@@ -135,7 +135,7 @@
 /* #export */ function queryRequiredElement(selectors, opt_context) {
   const element = (opt_context || document).querySelector(selectors);
   return assertInstanceof(
-    element, HTMLElement, 'Missing required element: ' + selectors);
+      element, HTMLElement, 'Missing required element: ' + selectors);
 }
 
 /**
@@ -190,7 +190,7 @@
     el.removeEventListener('transitionend', f);
     fired = true;
   });
-  window.setTimeout(function () {
+  window.setTimeout(function() {
     if (!fired) {
       cr.dispatchSimpleEvent(el, 'transitionend', true);
     }
@@ -244,10 +244,10 @@
  */
 /* #export */ function HTMLEscape(original) {
   return original.replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
 }
 
 /**
@@ -289,14 +289,14 @@
     eventNames = eventNames.split(/ +/);
   }
 
-  const removeAllAndCallCallback = function (event) {
-    eventNames.forEach(function (eventName) {
+  const removeAllAndCallCallback = function(event) {
+    eventNames.forEach(function(eventName) {
       target.removeEventListener(eventName, removeAllAndCallCallback, false);
     });
     return callback(event);
   };
 
-  eventNames.forEach(function (eventName) {
+  eventNames.forEach(function(eventName) {
     target.addEventListener(eventName, removeAllAndCallCallback, false);
   });
 }
@@ -316,3 +316,5 @@
 /* #export */ function isTextInputElement(el) {
   return el.tagName === 'INPUT' || el.tagName === 'TEXTAREA';
 }
+
+/* #ignore */ console.warn('crbug/1173575, non-JS module files deprecated.');

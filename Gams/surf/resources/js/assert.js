@@ -24,7 +24,7 @@
       message = message + ': ' + opt_message;
     }
     const error = new Error(message);
-    const global = function () {
+    const global = function() {
       const thisOrSelf = this || self;
       /** @type {boolean} */
       thisOrSelf.traceAssertionsForTesting;
@@ -76,8 +76,10 @@
   // message if we don't have to.
   if (!(value instanceof type)) {
     assertNotReached(
-      opt_message ||
-      'Value ' + value + ' is not a[n] ' + (type.name || typeof type));
+        opt_message ||
+        'Value ' + value + ' is not a[n] ' + (type.name || typeof type));
   }
   return value;
 }
+
+/* #ignore */ console.warn('crbug/1173575, non-JS module files deprecated.');

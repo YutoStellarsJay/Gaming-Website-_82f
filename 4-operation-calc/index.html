@@ -1,0 +1,83 @@
+<head>
+    <link rel="icon" type="image/png" href="/images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        h2 {
+            color: #f3f3f3;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body style="background-color: #181818; overflow-x: hidden; margin: 0px auto;">
+    <iframe style="border: none; height:50px; width: 100%" src="/menubar.html"></iframe>
+    <div class="game-box">
+        <iframe style="border: none;" id="game" src="/Gams/doodle-jump/index.html"></iframe>
+        <div class="below-options">
+            <div class="below-options-icons">
+                <button class="hidden-button"
+                    onclick="navigator.clipboard.writeText(window.location.href);logEvent(analytics,'copy'); alert('Copied to Clipboard!');">
+                    <img src="/images/copy.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button"
+                    onclick="logEvent(analytics,'fill-form');
+            window.open('https:\/\/docs.google.com/forms/u/2/d/1etO1u-rh_4Qscm5jP_0CWGDhcKydwbDdu_fzOHqBGRI/edit?usp=forms_home&ouid=110834520300682587156&ths=true');">
+                    <img src="/images/fill-form.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button" onclick="window.location.href = 'fullscreen'" a>
+                    <img src="/images/fullscreen.svg" class="icon" alt="Share">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const iframe = document.getElementById("game");
+        iframe.onload = function () {
+            const contentHeight = iframe.contentWindow.document.body.scrollHeight;
+            const contentWidth = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = contentHeight + 'px';
+            iframe.style.width = (contentWidth - 130) + 'px';
+        };</script>
+    <div class="description-box">
+        <h2 id="highscore">Doodle Jump Highscore: 0</h2>
+    </div>
+    <div class="description-box">
+        <p>Doodle Jump is a popular mobile/arcade arcade gam where the player controls a little four-legged character
+            called
+            "The Doodler." The main goal is to jump as high as possible by bouncing from platform to platform without
+            falling. Along the way, players must avoid obstacles like monsters, black holes, and broken platforms, while
+            collecting power-ups to help them reach higher scores. The gam features simple one-touch controls making it
+            very fun to play.</p>
+    </div>
+    <div class="description-box">
+        <p>Support: The game only supports computer or devices with keyboard controls</p>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, logEvent, initializeAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        // Your config here
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+            projectId: "drlve-user-ai9jdw",
+            appId: "1:876820025538:web:1681673610ace986c8eb5b",
+            measurementId: "G-KJPQ4MHKXR"
+        };
+        setTimeout(() => {
+            const app = initializeApp(firebaseConfig);
+
+            initializeAnalytics(app);
+
+            const analytics = getAnalytics(app);
+
+            logEvent(analytics, 'doodle-jump-played', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        }, 1000)
+        var score = localStorage.getItem("doodle-jump-score");
+        score = score == null ? "0" : score;
+        document.getElementById("highscore").innerHTML = "Doodle Jump Highscore: " + score;
+    </script>
+</body>
