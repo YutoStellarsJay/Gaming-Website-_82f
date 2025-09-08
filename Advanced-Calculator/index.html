@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="icon" type="image/png" href="../images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body style="background-color: #181818; overflow-x: hidden; margin: 0px auto;">
+    <iframe style="border: none; width: 100%; height:50px" src="../menubar.html"></iframe>
+    <div class="game-box">
+        <iframe style="border: none; min-height: 125vh; min-width: 90vh;" id="game" scrolling="no"
+            src="../Gams/2048/index.html"></iframe>
+        <div class="below-options">
+            <div class="below-options-icons">
+                <button class="hidden-button"
+                    onclick="navigator.clipboard.writeText(window.location.href); logEvent(analytics,'copy'); alert('Copied to Clipboard!');">
+                    <img src="../images/copy.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button"
+                    onclick="logEvent(analytics,'fill-form');
+            window.open('https:\/\/docs.google.com/forms/u/2/d/1etO1u-rh_4Qscm5jP_0CWGDhcKydwbDdu_fzOHqBGRI/edit?usp=forms_home&ouid=110834520300682587156&ths=true');;">
+                    <img src="../images/fill-form.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button" onclick="window.location.href = 'fullscreen'" a>
+                    <img src="../images/fullscreen.svg" class="icon" alt="Share">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const iframe = document.getElementById("game");
+        iframe.onload = function () {
+            const contentHeight = iframe.contentWindow.document.body.scrollHeight;
+            const contentWidth = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = contentHeight + 'px';
+            iframe.style.width = (contentWidth - 130) + 'px';
+        };</script>
+    <div class="description-box">
+        <p>2048 is a popular single-player puzzle gam where players slide numbered tiles on a 4x4 grid to combine them
+            and create a tile with the number 2048. Each move slides all tiles in one direction, and tiles with the same
+            number merge into one when they touch. The gam requires strategic thinking and planning to avoid filling up
+            the grid, which ends the gam. Simple to learn but hard to master, 2048 has become a classic in web gams</p>
+    </div>
+    <div class="description-box">
+        <p>Support: The game supports computer only</p>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, logEvent, initializeAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        // Your config here
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+            authDomain: "drlve-user-ai9jdw.firebaseapp.com",
+            databaseURL: "https://drlve-user-ai9jdw-default-rtdb.firebaseio.com",
+            projectId: "drlve-user-ai9jdw",
+            storageBucket: "drlve-user-ai9jdw.firebasestorage.app",
+            messagingSenderId: "876820025538",
+            appId: "1:876820025538:web:1681673610ace986c8eb5b",
+            measurementId: "G-KJPQ4MHKXR"
+        };
+        const app = initializeApp(firebaseConfig);
+
+        initializeAnalytics(app);
+
+        const analytics = getAnalytics(app);
+
+        logEvent(analytics, '2028-played', {
+            page_title: document.title,
+            page_location: window.location.href,
+            page_path: window.location.pathname
+        });
+    </script>
+</body>

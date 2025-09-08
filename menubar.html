@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style-mainpage.css" fetchpriority="low">
+</head>
+
+<body>
+    <div class="menubar">
+        <div style="display: flex; flex-direction: column;">
+            <p style="margin: 0; text-size-adjust: 5px; font-size: 7px;">Panic Link (Full link👍)</p>
+            <input type="text" id="panicInput" name="dataInput" class="panic-input" name="panic Input"
+                value="https://drive.google.com/drive/my-drive">
+            <div style="height: 2px"></div>
+            <button id="panic-button" onclick="panic();" class="panic-button">
+                <div>
+                    <b>
+                        <p>Panic</p>
+                    </b>
+                </div>
+            </button>
+        </div>
+        <a href="index.html" target="_top">
+            <img class="home centered" alt="Home" src="images/home.svg">
+            <!--Start of hovering bubble-->
+            <div class="hover-bubble home-hover-b" style="right: 50px;" fetchpriority="low">
+                <p style="margin: 0; font-size: x-small;">Home</p>
+            </div>
+            <!--End of hovering bubble-->
+        </a>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <button id="profile" class="pfc invisible-button" style="border: none"
+                onclick="window.open('/profile', '_top')">
+                <img src="images/pfp-icons/0.svg" style="width: 20px; height: 20px; border-radius: 25px;"
+                    id="pfpImage">
+            </button>
+            <!--Start of hovering bubble-->
+            <div class="hover-bubble profile-hover-b" style="right: 50px;" fetchpriority="low">
+                <p style="margin: 0; font-size: x-small;">Profile (Local)</p>
+            </div>
+            <!--End of hovering bubble-->
+        </div>
+    </div>
+    <script>
+        document.getElementById("profile").style.backgroundColor = localStorage.getItem("background-color"), null != localStorage.getItem("image") && (document.getElementById("pfpImage").src = localStorage.getItem("image"));
+        setTimeout(() => { function panic() { input = document.getElementById("panicInput").value, window.top.location.href = input } }, 300)
+    </script>
+</body>
+
+</html>

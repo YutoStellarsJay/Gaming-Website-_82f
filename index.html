@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <link rel="stylesheet" href="style-mainpage.css" fetchpriority="low">
+    <meta name="description"
+        content="Play games like Doodle Jump, Tetris, 2048, Minesweeper and more right here on DrLve's Game Collection!">
+    <meta name="keywords"
+        content="games, game collection, doodle jump, tetris, 2048, minesweeper, champion island, surf, google drive games, online games, free games, drlve, biz-digital-calculator, biz digital calculator, fun games, unblocked games, games, play games, biz">
+    <meta name="charset" content="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="background-color: #181818; overflow-x: hidden; margin: 0px auto;">
+    <header>
+        <iframe style="border: none; width: 100%; height:50px" src="menubar.html"
+            title="menubar with a profile icon on the right, a home button slightly to the left, and a panic button that brings you to another site"
+            fetchpriority="high"></iframe>
+    </header>
+    <nav>
+        <div class=" game-array">
+            <div class="gam-holder">
+                <a href="4-operation-calc.html">
+                    <img src="images/doodler.webp" alt="Game for Doodle Jump" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc">Doodle Jump</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="Scientific-Calculator/index.html">
+                    <img src="images/cat-thing.webp" alt="Game for Champion Island" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc">Champion Island</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="Advanced-Calculator/index.html">
+                    <img src="images/2048.webp" alt="Game for 2048" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(30px,52px);">2048</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="Calculator/index.html">
+                    <img src="images/tetris.webp" alt="Game for Tetris" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(28px,52px);">Tetris</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="Spinning-Calculator/index.html">
+                    <img src="images/tux.webp" alt="Game for Microsoft Surf" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(32px,52px);">Surf</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="Curta-Calculator/index.html" alt="Minesweeper">
+                    <img src="images/minesweeper.webp" alt="Game for Minesweeper" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc">Minesweeper</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="turing-calculator/index.html">
+                    <img src="images/turing-machine.webp" alt="Game for Alan Turings 100th birthday google doodle"
+                        fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(0px, 25px);">Alan Turings 100th Birthday</p>
+                    </b>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="description-box">
+        <p>Want more games to be added? Recommend some here</p><a
+            href="https://docs.google.com/forms/u/2/d/1etO1u-rh_4Qscm5jP_0CWGDhcKydwbDdu_fzOHqBGRI/edit?usp=forms_home&ouid=110834520300682587156&ths=true"><img
+                src="images/share.svg" style="width: 20px;" alt="Suggest features, goes to google forms"></a>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, initializeAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+
+        setTimeout(() => {
+            const firebaseConfig = {
+                apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+                projectId: "drlve-user-ai9jdw",
+                appId: "1:876820025538:web:1681673610ace986c8eb5b",
+                measurementId: "G-KJPQ4MHKXR"
+            };
+            const app = initializeApp(firebaseConfig);
+
+            initializeAnalytics(app);
+
+            const analytics = getAnalytics(app);
+            logEvent(analytics, 'page-view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        }, 1000);
+    </script>
+</body>
+
+</html>

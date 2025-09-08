@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="icon" type="image/png" href="https://drlve-user-ai9jdw.web.app/Scientific-Calculator/images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <link rel="stylesheet" href="../style.css">
+    <meta name="description"
+        content="Play games like Doodle Jump, Tetris, 2048, Minesweeper and more right here on DrLve's Game Collection!">
+    <meta name="charset" content="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+</head>
+
+<body style="background-color: #181818; overflow-x: hidden; margin: 0px auto;">
+    <iframe style="border: none; width: 100%; height:50px" src="../menubar.html"></iframe>
+    <div class="game-box">
+        <iframe style="border: none; max-height: 50vh; max-width: 90vw;" id="game"
+            src="../Gams/Google-Doodle-Champion-Island-main/index.html"></iframe>
+        <div class=" below-options">
+            <div class="below-options-icons">
+                <button class="hidden-button"
+                    onclick="navigator.clipboard.writeText(window.location.href); logEvent(analytics,'copy'); alert('Copied to Clipboard!');">
+                    <img src="../images/copy.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button"
+                    onclick="logEvent(analytics,'fill-form');
+            window.open('https:\/\/docs.google.com/forms/u/2/d/1etO1u-rh_4Qscm5jP_0CWGDhcKydwbDdu_fzOHqBGRI/edit?usp=forms_home&ouid=110834520300682587156&ths=true');">
+                    <img src="../images/fill-form.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button" onclick="window.location.href = 'fullscreen'" a>
+                    <img src="../images/fullscreen.svg" class="icon" alt="Share">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const iframe = document.getElementById("game");
+        iframe.onload = function () {
+            const contentHeight = iframe.contentWindow.document.body.scrollHeight;
+            const contentWidth = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = contentHeight + 'px';
+            iframe.style.width = (contentWidth - 130) + 'px';
+        };</script>
+    <div class="description-box">
+        <p>Doodle Champion Island Gams is a interactive Google Doodle released during the Tokyo 2020 Olympics, where
+            players control Lucky, a ninja cat, on a quest to defeat seven sports champions inspired by Japanese
+            mythology. Set in a colorful 16-bit world, the gam features mini-gams like table tennis, archery, and
+            skateboarding, along with side quests and team-based leaderboards. Created in collaboration with Studio 4°C,
+            it blends anime-style storytelling with Olympic spirit and Japanese folklore, offering a nostalgic yet
+            culturally rich gaming experience.</p>
+    </div>
+    <div class="description-box">
+        <p>Support: The game supports moblie and computer, if you hear 2 songs playing, restart by clearing cookies</p>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, logEvent, initializeAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        // Your config here
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+            projectId: "drlve-user-ai9jdw",
+            appId: "1:876820025538:web:1681673610ace986c8eb5b",
+            measurementId: "G-KJPQ4MHKXR"
+        };
+        const app = initializeApp(firebaseConfig);
+
+        initializeAnalytics(app);
+
+        const analytics = getAnalytics(app);
+
+        logEvent(analytics, 'champion-island-played', {
+            page_title: document.title,
+            page_location: window.location.href,
+            page_path: window.location.pathname
+        });
+    </script>
+</body>
