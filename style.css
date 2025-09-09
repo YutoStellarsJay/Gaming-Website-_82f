@@ -10,6 +10,10 @@
     box-shadow: hidden;
 }
 
+h1 {
+    color: white;
+}
+
 .description-box {
     background-color: #353535;
     display: flex;
@@ -21,6 +25,30 @@
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
+}
+
+.scary-button {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: #af0000;
+    color: rgb(222, 222, 222);
+    outline: 1.5px solid red;
+}
+
+.invisible-button {
+    background-color: #bfbfbf00;
+    border: none;
+}
+
+.pfc {
+    right: 100px;
+    position: absolute;
+    min-height: 30px;
+    min-width: 30px;
+    background-color: #2f2f2f;
+    right: 5px;
+    border-radius: 20px;
 }
 
 h2 {

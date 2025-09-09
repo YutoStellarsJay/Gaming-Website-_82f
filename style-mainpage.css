@@ -164,12 +164,3 @@ body {
     opacity: 1;
     bottom: 18px;
 }
-
-.scary-button {
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    background-color: #af0000;
-    color: rgb(222, 222, 222);
-    outline: 1.5px solid red;
-}
