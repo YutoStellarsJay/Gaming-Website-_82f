@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="/style.css" fetchpriority="low">
     <style>
         button {
@@ -20,8 +21,9 @@
         fetchpriority="high"></iframe>
     <div class="description-box" style="flex-direction: column;">
         <h1>Profile</h1>
-        <div id="profile" class="invisible-button" style="border: none; border-radius: 100px;">
-            <img src="/images/pfp-icons/0.svg" style="width: 200px; height: 200px;" id="pfpImage">
+        <div id="profile" class="invisible-button"
+            style="border: none; border-radius: 100px; width: min(200px, 80dvw); height: min(200px, 80%);">
+            <img src="/images/pfp-icons/0.svg" style="width: min(200px, 80dvw); height: min(200px, 80%);" id="pfpImage">
         </div>
         <h2>Pick a Profile Picture</h2>
         <div>
