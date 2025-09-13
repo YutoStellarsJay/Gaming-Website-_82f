@@ -58,9 +58,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    columns: 100 100px;
     gap: 20px;
-    box-sizing: border-box;
 }
 
 .game-array a {
@@ -118,6 +117,7 @@ body {
     font-size: 6px;
     background-color: #969696;
     border: none;
+    width: min(45dvw, 108px);
     outline: 1px solid #313131;
     border-radius: 2px;
     transition: background-color 0.1s ease-in, height 0.1s ease-in, color 0.1s ease-out;
@@ -129,16 +129,16 @@ body {
 }
 
 .panic-input {
-    width: 100px;
-    max-height: 10px;
+    width: min(40dvw, 100px);
+    height: 8px;
     font-size: 7px;
 }
 
 .pfc {
     right: 100px;
     position: absolute;
-    min-height: 30px;
-    min-width: 30px;
+    height: 30px;
+    width: 30px;
     background-color: #2f2f2f;
     right: 5px;
     border-radius: 20px;
@@ -150,17 +150,20 @@ body {
     border-radius: 2px;
     padding: 5px;
     outline: 2px solid #323232;
-    transition: opacity 0.1s ease-in, bottom 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in, bottom 0.1s ease-out;
     opacity: 0;
+    backdrop-filter: blur(10px);
     bottom: -1px;
 }
 
 .pfc:hover~.profile-hover-b {
+    backdrop-filter: blur(10px);
     opacity: 1;
     bottom: 18px;
 }
 
 .home:hover~.home-hover-b {
+    backdrop-filter: blur(10px);
     opacity: 1;
     bottom: 18px;
 }
