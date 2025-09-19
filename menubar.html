@@ -26,7 +26,7 @@
         </a>
         <div id="hover-bubble-2" style="display: flex; align-items: center; justify-content: center;">
             <button id="profile" class="pfc" style="border: none" onclick="window.open('/profile', '_top')">
-                <img src="images/pfp-icons/0.svg" style="width: 20px; height: 20px; border-radius: 25px;" id="pfpImage">
+                <img src="images/pfp-icons/0.svg" class="centered" style="width: 20px; height: 20px;" id="pfpImage">
             </button>
         </div>
     </div>
@@ -36,7 +36,7 @@
         if (window.innerWidth >= 325) {
             document.getElementById("hover-bubble-1").innerHTML += `
             <!--Start of hovering bubble-->
-            <div class="hover-bubble home-hover-b" style="right: 46.5%;" fetchpriority="low">
+            <div class="hover-bubble home-hover" style="transform: translate(-40px, 0px)" fetchpriority="low">
                 <p style="margin: 0; font-size: x-small;">Home</p>
             </div>
             <!--End of hovering bubble-->`
@@ -44,7 +44,7 @@
         if (window.innerWidth >= 325) {
             document.getElementById("hover-bubble-2").innerHTML += `
             <!--Start of hovering bubble-->
-            <div class="hover-bubble profile-hover-b" style="right: 50px;" fetchpriority="low">
+            <div class="hover-bubble profile-hover" style="right: 45px" fetchpriority="low">
                 <p style="margin: 0; font-size: x-small;">Profile (Local)</p>
             </div>
             <!--End of hovering bubble-->`
