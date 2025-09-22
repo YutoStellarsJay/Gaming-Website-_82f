@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="/images/png" href="/images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description"
+        content="Play games like Doodle Jump, Tetris, 2048, Minesweeper and more right here on DrLve's Game Collection!">
+    <meta name="charset" content="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.googletagmanager.com/gtag/js?l=dataLayer&amp;id=G-KJPQ4MHKXR" async=""></script>
+</head>
+
+<body style="background-color: #181818; overflow: hidden; margin: 0px auto;">
+    <div class="centered" style="flex-direction: column;">
+        <iframe style="border: none; height: 100vh; width: 100vw; aspect-ratio: 2 2;" id="game"
+            src="/Gams/surf/"></iframe><!--Change-->
+        <div class="below-options" style="position: fixed; bottom: 0px">
+            <div class="below-options-icons">
+                <button class="hidden-button"
+                    onclick="navigator.clipboard.writeText(window.location.href); logEvent(analytics,'copy'); alert('Copied to Clipboard!');">
+                    <img src="/images/copy.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button"
+                    onclick="logEvent(analytics,'fill-form');
+            window.open('https:\/\/docs.google.com/forms/u/2/d/1etO1u-rh_4Qscm5jP_0CWGDhcKydwbDdu_fzOHqBGRI/edit?usp=forms_home&amp;ouid=110834520300682587156&amp;ths=true');">
+                    <img src="/images/fill-form.svg" class="icon" alt="Share">
+                </button>
+                <button class="hidden-button" onclick="window.location.href = '/watch'" a="/watch"><!--Change-->
+                    <img src="/images/fullscreen-exit.svg" class="icon" alt="Share">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, logEvent, initializeAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        // Your config here
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+            projectId: "drlve-user-ai9jdw",
+            appId: "1:876820025538:web:1681673610ace986c8eb5b",
+            measurementId: "G-KJPQ4MHKXR"
+        };
+        const app = initializeApp(firebaseConfig);
+
+        initializeAnalytics(app);
+
+        const analytics = getAnalytics(app);
+
+        logEvent(analytics, 'fullscreen', {
+            page_title: document.title,
+            page_location: window.location.href,
+            page_path: window.location.pathname
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="google-site-verification" content="BIKwI49HgttYqw-6QQ_wC-gD8lUK87FnM-TRskEB15Y" />
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="/images/google-drive.png">
+    <title>My Drive - Google Drive</title>
+    <style>
+        .game-array>div>a>img:hover {
+            opacity: 0.5;
+        }
+
+        .game-array>div {
+            border-radius: 10px;
+            margin: 0;
+            z-index: 1;
+            display: flex;
+            height: 100px;
+            width: 100px;
+            background-image: linear-gradient(#a3a3a3, #000000);
+        }
+
+        .game-box {
+            max-width: 90%;
+            background-color: dimgrey;
+            display: flex;
+            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0px 0px 7px #f2ff00;
+            flex-direction: column;
+        }
+
+        .centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .description-box {
+            background-color: #353535;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 85%;
+            min-height: 5px;
+            margin: 0 auto;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .gam-desc {
+            z-index: 2;
+            color: white;
+            text-align: center;
+            transform: translate(0px, 39px);
+        }
+
+        .game-array {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            columns: 100 100px;
+            gap: 20px;
+        }
+
+        .game-array a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .game-array>div>a>img {
+            position: absolute;
+            transform: translate(-5px, -5px);
+            z-index: 0;
+            height: 100px;
+            opacity: 0.7;
+            width: 100px;
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0px 0px 3px #f2ff00;
+            transition: opacity 0.1s ease-in;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(255, 255, 255);
+        }
+
+
+        a {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(45, 95, 232);
+            transition: color 0.1s ease-in-out;
+        }
+
+        a:hover {
+            color: rgb(15, 62, 194);
+        }
+
+        body {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .menubar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #515151;
+            outline: 2px solid #3e3e3e;
+            width: 100%;
+            height: 40px;
+            gap: 2px;
+        }
+
+        .home {
+            text-decoration: none;
+            height: 40px;
+        }
+
+        .panic-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 13px;
+            font-size: 6px;
+            background-color: #969696;
+            border: none;
+            width: min(45dvw, 108px);
+            outline: 1px solid #313131;
+            border-radius: 2px;
+            transition: background-color 0.1s ease-in, height 0.1s ease-in, color 0.1s ease-out;
+        }
+
+        .panic-button:hover {
+            background-color: #5ad12f;
+            height: 15px;
+        }
+
+        .panic-input {
+            width: min(40dvw, 100px);
+            height: 8px;
+            font-size: 7px;
+        }
+
+        .pfc {
+            right: 100px;
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-color: #2f2f2f;
+            right: 5px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <meta name="description"
+        content="Play a collection of games from 2028, Tetris and Minesweeper all the way to Stickman hook on DrLve/Schoolclasssciencemath's collection">
+    <meta name="keywords"
+        content="games, game collection, doodle jump, tetris, 2048, minesweeper, champion island, surf, google drive games, online games, free games, drlve, biz-digital-calculator, biz digital calculator, fun games, unblocked games, games, play games, biz">
+    <meta name="charset" content="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="DrLve/Schoolclasssciencemath games">
+</head>
+
+<body style="background-color: #181818; overflow-x: hidden; margin: 0px auto;">
+    <header>
+        <iframe style="border: none; width: 100%; height:65px; margin-bottom: 10px;" src="/menubar-watch.html"
+            title="menubar with a profile icon on the right, a home button slightly to the left, and a panic button that brings you to another site"
+            fetchpriority="high"></iframe>
+    </header>
+    <nav>
+        <div class=" game-array">
+            <div class="gam-holder">
+                <a href="Spinning-Calculator/index.html">
+                    <img src="/images/tux.webp" alt="Game for Microsoft Surf" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(32px,52px);">Surf</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="">
+                    <img src="/Gams/Gams-main/img/spacebarclicker.png" alt="Game for spacebar clicker"
+                        fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(0px, 45px);">Spacebar Clicker</p>
+                    </b>
+                </a>
+            </div>
+            <div class="gam-holder">
+                <a href="/">
+                    <img src="/images/computer.webp" alt="Normal format of website" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate(22px, 50px);">Normal</p>
+                    </b>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics, initializeAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+
+        setTimeout(() => {
+            const firebaseConfig = {
+                apiKey: "AIzaSyD7tcUGHLcXKgk_T2UzHUafdrUGKRbYwPo",
+                projectId: "drlve-user-ai9jdw",
+                appId: "1:876820025538:web:1681673610ace986c8eb5b",
+                measurementId: "G-KJPQ4MHKXR"
+            };
+            const app = initializeApp(firebaseConfig);
+
+            initializeAnalytics(app);
+
+            const analytics = getAnalytics(app);
+            logEvent(analytics, 'page-view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+        }, 1000);
+    </script>
+</body>
+
+</html>
