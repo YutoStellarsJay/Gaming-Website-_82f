@@ -124,7 +124,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 13px;
+    height: 11px;
     font-size: 6px;
     background-color: #969696;
     border: none;
@@ -136,7 +136,7 @@ body {
 
 .panic-button:hover {
     background-color: #5ad12f;
-    height: 15px;
+    height: 13px;
 }
 
 .panic-input {
