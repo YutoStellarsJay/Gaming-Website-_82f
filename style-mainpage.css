@@ -181,3 +181,15 @@ body {
     opacity: 1;
     bottom: 18px;
 }
+
+.pfc:hover~.profile-hover-2 {
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    bottom: 8px;
+}
+
+.home:hover~.home-hover-2 {
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    bottom: 8px;
+}
