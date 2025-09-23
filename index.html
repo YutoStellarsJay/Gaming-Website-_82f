@@ -23,88 +23,9 @@
             fetchpriority="high"></iframe>
     </header>
     <nav>
-        <div style="height: 60px"></div>
-        <div class=" game-array">
-            <div class="gam-holder">
-                <a href="4-operation-calc/">
-                    <img src="images/doodler.webp" alt="Game for Doodle Jump" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc">Doodle Jump</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="Scientific-Calculator/index.html">
-                    <img src="images/cat-thing.webp" alt="Game for Champion Island" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc">Champion Island</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="Advanced-Calculator/">
-                    <img src="images/2048.webp" alt="Game for 2048" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(30px,52px);">2048</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="Calculator/">
-                    <img src="images/tetris.webp" alt="Game for Tetris" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(28px,52px);">Tetris</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="Spinning-Calculator/">
-                    <img src="images/tux.webp" alt="Game for Microsoft Surf" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(32px,52px);">Surf</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="Curta-Calculator/" alt="Minesweeper">
-                    <img src="images/minesweeper.webp" alt="Game for Minesweeper" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc">Minesweeper</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="/Gams/Gams-main/Gams.html">
-                    <img src="images/gams.webp" alt="Collection for Gams games" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(0px, 45px);">Collection: Gams Lite</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="/Graphing-Calculator/">
-                    <img src="images/basketball-stars.webp" alt="Game for basketball stars" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(0px,40px);">Basketball Stars</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="/calculator-maker/">
-                    <img src="images/codeeditor.webp" alt="Tool for HTML editor" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(3px, 50px);">HTML editor</p>
-                    </b>
-                </a>
-            </div>
-            <div class="gam-holder">
-                <a href="/watch">
-                    <img src="images/watch.webp" alt="Apple Watch friendly format of website" fetchpriority="high">
-                    <b style="pointer-events: none;">
-                        <p class="gam-desc" style="transform: translate(3px, 40px);">Apple watch Friendly</p>
-                    </b>
-                </a>
-            </div>
+        <div style=" height: 60px">
+        </div>
+        <div class="game-array" id="games-selection">
         </div>
     </nav>
     <div class="description-box" style="flex-direction: column;">
@@ -136,6 +57,25 @@
                 page_path: window.location.pathname
             });
         }, 1000);
+
+        const games = document.getElementById("games-selection");
+        var thumbnails = ["images/doodler.webp", "images/cat-thing.webp", "images/2048.webp", "images/tetris.webp", "images/tux.webp", "images/minesweeper.webp", "images/gams.webp", "images/basketball-stars.webp", "images/codeeditor.webp", "images/watch.webp"];
+        var titles = ["Doodle Jump", "Champion Island", "2048", "Tetris", "Surf", "Minesweeper", "Collection: Gams Lite", "Basketball Stars", "HTML editor", "Apple Watch friendly"];
+        var transformTitle = ["(0px, 40px)", "(0px, 40px)", "(30px, 50px)", "(28px,52px)", "(32px,52px)", "(0px, 40px)", "(0px, 45px)", "(0px,40px)", "(3px, 50px)", "(3px, 40px)"];
+        var redirects = ["calculators/4-operation-calc/", "calculators/Scientific-Calculator/", "calculators/Advanced-Calculator/", "calculators/Calculator/", "calculators/Spinning-Calculator/", "calculators/Curta-Calculator/", "/Gams/Gams-main/Gams.html", "calculators/Graphing-Calculator/", "calculators/calculator-maker/", "/watch"];
+        var alt = ["Game for Doodle jump", "Game for champion island", "Game for 2048", "Game for Tetris", "Game for Microsoft Surf", "Game for Minesweeper", "Collection for Gams games", "Game for basketball stars", "Tool for HTML editor", "Apple Watch friendly format of website"]
+
+        thumbnails.forEach((game, index) => {
+            console.log(`Another fruit at index ${index}: ${game}`);
+            games.innerHTML += `<div class="gam-holder">
+                <a href="${redirects[index]}">
+                    <img src="${thumbnails[index]}" alt="Game for Champion Island" fetchpriority="high">
+                    <b style="pointer-events: none;">
+                        <p class="gam-desc" style="transform: translate${transformTitle[index]};"">${titles[index]}</p>
+                    </b>
+                </a>
+            </div>`
+        });
     </script>
 </body>
 
